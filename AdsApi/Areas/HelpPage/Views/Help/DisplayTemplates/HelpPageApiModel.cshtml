@@ -1,0 +1,120 @@
+@using System.Web.Http
+@using System.Web.Http.Description
+@using AdsApi.Areas.HelpPage.Models
+@using AdsApi.Areas.HelpPage.ModelDescriptions
+@model HelpPageApiModel
+
+@{
+    ApiDescription description = Model.ApiDescription;
+
+    Random rdm = new Random();
+    int uniq = rdm.Next(1, 1000);
+}
+
+
+<div>
+    <div class="row">
+        <div id="ResourceDescription">
+            <div class="panel panel-danger">
+                <div class="panel-heading" role="tab" id="heading_@uniq">
+                    <h4>Resource Description</h4>
+                </div>
+                <div >
+                    <div class="panel-body panel-collapse main-model" id="collapse_@uniq"
+                         role="tabpanel" aria-labelledby="heading_@uniq">
+                        @if (Model.ResourceDescription != null)
+                        {
+                            if (Model.ResourceProperties != null)
+                            {
+                                @Html.DisplayFor(m => m.ResourceProperties, "Description")
+                            }
+                        }
+                        else
+                        {
+                            <p>None</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="ParamInfoId">
+            <div class="panel panel-danger">
+                <div class="panel-heading" >
+                    <h4>Parameter Information</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="ModelSchema">
+                        @if (Model.SampleResponses != null)
+                        {
+                            if (Model.SampleRequests != null)
+                            {
+                                @Html.DisplayFor(m => m.SampleResponses, "Samples")
+                            }
+
+                        }
+                        else
+                        {
+                            <p>None</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="ParamSampleId">
+            <div class="panel panel-danger">
+                <div class="panel-heading"><h4>Parameter Sample</h4></div>
+                <div class="panel-body">
+                    <div>
+                        @if (Model.RequestModelDescription != null)
+                        {
+                            if (Model.RequestBodyParameters != null)
+                            {
+                                <div class="panel-heading"><h4>Body Parameters</h4></div>
+                                @Html.DisplayFor(m => m.RequestBodyParameters, "Parameters")
+
+                            }
+                        }
+                        else
+                        {
+                            if (Model.UriParameters != null)
+                            {
+                                <div class="panel-heading"><h4>URI Parameters</h4></div>
+                                @Html.DisplayFor(m => m.UriParameters, "Parameters")
+                            }
+                            else
+                            {
+                                <p>$None.</p>
+                            }
+
+
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        @*<h1>@description.HttpMethod.Method @description.RelativePath</h1>*@
+        @*<div id="URIparameterId" class="col-xs-6">
+            <div class="panel panel-danger">
+                <div class="panel-heading"><h4>URI Parameters</h4></div>
+                <div class="panel-body">
+                    @Html.DisplayFor(m => m.UriParameters, "Parameters")
+                </div>
+            </div>
+        </div>*@
+
+        @*<div class="row">
+            @Html.DisplayFor(m => m.SampleResponses, "Samples")
+        </div>*@
+    </div> 
+
+</div>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="AdsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADS_UPGRADES" EntityType="AdsModel.ADS_UPGRADES" />
+    <FunctionImport Name="XXRF_ADS_GET_FLASH_ID" ReturnType="Collection(Single)">
+      <Parameter Name="P_FLASH_ID" Mode="Out" Type="Decimal" />
+    </FunctionImport>
+    <EntitySet Name="XXRF_ADS_FLASHED_UNITS" EntityType="AdsModel.ADS_FLASHED_UNITS" />
+    <EntitySet Name="XXRF_ADS_ERROR_LOG" EntityType="AdsModel.ADS_ERROR_LOG" />
+    <EntitySet Name="XXRF_ADS_SERIAL_TRACKING" EntityType="AdsModel.ADS_SERIAL_TRACKING" />
+  </EntityContainer>
+  <EntityType Name="ADS_UPGRADES">
+    <Key>
+      <PropertyRef Name="UPGRADE_ID" />
+    </Key>
+    <Property Name="UPGRADE_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FLASH_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="UPGRADE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ADS_FLASHED_UNITS">
+    <Key>
+      <PropertyRef Name="FLASH_ID" />
+    </Key>
+    <Property Name="FLASH_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SERIAL_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SERIAL_NUMBER_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="CUSTOMER_NUMBER" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="FLASH_DATE" Type="DateTime" />
+    <Property Name="VEHICLE_MAKE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="VEHICLE_MODEL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="VEHICLE_YEAR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="USER_FLASH_UNIT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="INVENTORY_ITEM_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="INV_FLAG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="ADS_ERROR_LOG">
+    <Key>
+      <PropertyRef Name="ERROR_ID" />
+    </Key>
+    <Property Name="ERROR_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="REQUEST" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MESSAGE" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="TIME_DATE" Type="DateTime" />
+    <Property Name="SERIAL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ADS_SERIAL_TRACKING">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="SERIAL_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SERIAL_NUMBER_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="SKU" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="CUSTOMER_NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="CUSTOMER_NUMBER" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="SHIP_TO_ADDRESS1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SHIP_TO_ADDRESS2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SHIP_TO_ADDRESS3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CITY" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="STATE_PROVINCE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="POSTAL_CODE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="COUNTRY" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="SHIP_DATE" Type="DateTime" />
+    <Property Name="ORDER_NUMBER" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ADS_PICK_DATE" Type="DateTime" />
+    <Property Name="ADS_FLASH_DATE" Type="DateTime" />
+    <Property Name="FLASH_INVOICE_NUMBER" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ACK_MESSAGE" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="ACK_DATE" Type="DateTime" />
+    <Property Name="ACK_CODE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACT_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CONTACT_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="LOCATION_ID" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+</Schema>

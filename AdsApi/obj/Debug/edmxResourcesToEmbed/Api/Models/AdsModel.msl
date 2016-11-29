@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AdsModelStoreContainer" CdmEntityContainer="AdsEntities">
+    <EntitySetMapping Name="ADS_UPGRADES">
+      <EntityTypeMapping TypeName="AdsModel.ADS_UPGRADES">
+        <MappingFragment StoreEntitySet="XXRF_ADS_UPGRADES">
+          <ScalarProperty Name="UPGRADE" ColumnName="UPGRADE" />
+          <ScalarProperty Name="FLASH_ID" ColumnName="FLASH_ID" />
+          <ScalarProperty Name="UPGRADE_ID" ColumnName="UPGRADE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XXRF_ADS_FLASHED_UNITS">
+      <EntityTypeMapping TypeName="AdsModel.ADS_FLASHED_UNITS">
+        <MappingFragment StoreEntitySet="XXRF_ADS_FLASHED_UNITS">
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="INV_FLAG" ColumnName="INV_FLAG" />
+          <ScalarProperty Name="INVENTORY_ITEM_ID" ColumnName="INVENTORY_ITEM_ID" />
+          <ScalarProperty Name="USER_FLASH_UNIT" ColumnName="USER_FLASH_UNIT" />
+          <ScalarProperty Name="VEHICLE_YEAR" ColumnName="VEHICLE_YEAR" />
+          <ScalarProperty Name="VEHICLE_MODEL" ColumnName="VEHICLE_MODEL" />
+          <ScalarProperty Name="VEHICLE_MAKE" ColumnName="VEHICLE_MAKE" />
+          <ScalarProperty Name="FLASH_DATE" ColumnName="FLASH_DATE" />
+          <ScalarProperty Name="CUSTOMER_NUMBER" ColumnName="CUSTOMER_NUMBER" />
+          <ScalarProperty Name="SERIAL_NUMBER_ID" ColumnName="SERIAL_NUMBER_ID" />
+          <ScalarProperty Name="SERIAL_NUMBER" ColumnName="SERIAL_NUMBER" />
+          <ScalarProperty Name="FLASH_ID" ColumnName="FLASH_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XXRF_ADS_ERROR_LOG">
+      <EntityTypeMapping TypeName="AdsModel.ADS_ERROR_LOG">
+        <MappingFragment StoreEntitySet="XXRF_ADS_ERROR_LOG">
+          <ScalarProperty Name="SERIAL" ColumnName="SERIAL" />
+          <ScalarProperty Name="TIME_DATE" ColumnName="TIME_DATE" />
+          <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+          <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+          <ScalarProperty Name="REQUEST" ColumnName="REQUEST" />
+          <ScalarProperty Name="ERROR_ID" ColumnName="ERROR_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="XXRF_ADS_SERIAL_TRACKING">
+      <EntityTypeMapping TypeName="AdsModel.ADS_SERIAL_TRACKING">
+        <MappingFragment StoreEntitySet="XXRF_ADS_SERIAL_TRACKING">
+          <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CONTACT_EMAIL" ColumnName="CONTACT_EMAIL" />
+          <ScalarProperty Name="CONTACT_NAME" ColumnName="CONTACT_NAME" />
+          <ScalarProperty Name="ACK_CODE" ColumnName="ACK_CODE" />
+          <ScalarProperty Name="ACK_DATE" ColumnName="ACK_DATE" />
+          <ScalarProperty Name="ACK_MESSAGE" ColumnName="ACK_MESSAGE" />
+          <ScalarProperty Name="FLASH_INVOICE_NUMBER" ColumnName="FLASH_INVOICE_NUMBER" />
+          <ScalarProperty Name="ADS_FLASH_DATE" ColumnName="ADS_FLASH_DATE" />
+          <ScalarProperty Name="ADS_PICK_DATE" ColumnName="ADS_PICK_DATE" />
+          <ScalarProperty Name="ORDER_NUMBER" ColumnName="ORDER_NUMBER" />
+          <ScalarProperty Name="SHIP_DATE" ColumnName="SHIP_DATE" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+          <ScalarProperty Name="POSTAL_CODE" ColumnName="POSTAL_CODE" />
+          <ScalarProperty Name="STATE_PROVINCE" ColumnName="STATE_PROVINCE" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="SHIP_TO_ADDRESS3" ColumnName="SHIP_TO_ADDRESS3" />
+          <ScalarProperty Name="SHIP_TO_ADDRESS2" ColumnName="SHIP_TO_ADDRESS2" />
+          <ScalarProperty Name="SHIP_TO_ADDRESS1" ColumnName="SHIP_TO_ADDRESS1" />
+          <ScalarProperty Name="CUSTOMER_NUMBER" ColumnName="CUSTOMER_NUMBER" />
+          <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="SERIAL_NUMBER_ID" ColumnName="SERIAL_NUMBER_ID" />
+          <ScalarProperty Name="SERIAL_NUMBER" ColumnName="SERIAL_NUMBER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

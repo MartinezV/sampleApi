@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdsModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="XXRF_ADS_ERROR_LOG">
+    <Key>
+      <PropertyRef Name="ERROR_ID" />
+    </Key>
+    <Property Name="ERROR_ID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="REQUEST" Type="varchar2" MaxLength="100" />
+    <Property Name="TYPE" Type="varchar2" MaxLength="100" />
+    <Property Name="MESSAGE" Type="varchar2" MaxLength="2000" />
+    <Property Name="TIME_DATE" Type="date" />
+    <Property Name="SERIAL" Type="varchar2" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="XXRF_ADS_FLASHED_UNITS">
+    <Key>
+      <PropertyRef Name="FLASH_ID" />
+    </Key>
+    <Property Name="FLASH_ID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SERIAL_NUMBER" Type="varchar2" MaxLength="20" />
+    <Property Name="SERIAL_NUMBER_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="CUSTOMER_NUMBER" Type="varchar2" MaxLength="500" />
+    <Property Name="FLASH_DATE" Type="date" />
+    <Property Name="VEHICLE_MAKE" Type="varchar2" MaxLength="500" />
+    <Property Name="VEHICLE_MODEL" Type="varchar2" MaxLength="500" />
+    <Property Name="VEHICLE_YEAR" Type="varchar2" MaxLength="20" />
+    <Property Name="USER_FLASH_UNIT" Type="varchar2" MaxLength="100" />
+    <Property Name="INVENTORY_ITEM_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="INV_FLAG" Type="varchar2" MaxLength="2" />
+    <Property Name="CREATION_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="XXRF_ADS_SERIAL_TRACKING">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="SERIAL_NUMBER" Type="varchar2" MaxLength="20" />
+    <Property Name="SERIAL_NUMBER_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="SKU" Type="varchar2" MaxLength="250" />
+    <Property Name="CUSTOMER_NAME" Type="varchar2" MaxLength="250" />
+    <Property Name="CUSTOMER_NUMBER" Type="number" Precision="38" Scale="0" />
+    <Property Name="SHIP_TO_ADDRESS1" Type="varchar2" MaxLength="500" />
+    <Property Name="SHIP_TO_ADDRESS2" Type="varchar2" MaxLength="500" />
+    <Property Name="SHIP_TO_ADDRESS3" Type="varchar2" MaxLength="500" />
+    <Property Name="CITY" Type="varchar2" MaxLength="500" />
+    <Property Name="STATE_PROVINCE" Type="varchar2" MaxLength="500" />
+    <Property Name="POSTAL_CODE" Type="varchar2" MaxLength="500" />
+    <Property Name="COUNTRY" Type="varchar2" MaxLength="500" />
+    <Property Name="SHIP_DATE" Type="date" />
+    <Property Name="ORDER_NUMBER" Type="number" Precision="38" Scale="0" />
+    <Property Name="ADS_PICK_DATE" Type="date" />
+    <Property Name="ADS_FLASH_DATE" Type="date" />
+    <Property Name="FLASH_INVOICE_NUMBER" Type="number" Precision="38" Scale="0" />
+    <Property Name="ACK_MESSAGE" Type="varchar2" MaxLength="2000" />
+    <Property Name="ACK_DATE" Type="date" />
+    <Property Name="ACK_CODE" Type="varchar2" MaxLength="1" />
+    <Property Name="CONTACT_NAME" Type="varchar2" MaxLength="20" />
+    <Property Name="CONTACT_EMAIL" Type="varchar2" MaxLength="250" />
+    <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="LOCATION_ID" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="XXRF_ADS_UPGRADES">
+    <Key>
+      <PropertyRef Name="UPGRADE_ID" />
+    </Key>
+    <Property Name="UPGRADE_ID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FLASH_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="UPGRADE" Type="varchar2" MaxLength="250" />
+  </EntityType>
+  <EntityContainer Name="AdsModelStoreContainer">
+    <EntitySet Name="XXRF_ADS_ERROR_LOG" EntityType="Self.XXRF_ADS_ERROR_LOG" Schema="ROCK" store:Type="Tables" />
+    <EntitySet Name="XXRF_ADS_FLASHED_UNITS" EntityType="Self.XXRF_ADS_FLASHED_UNITS" Schema="ROCK" store:Type="Tables" />
+    <EntitySet Name="XXRF_ADS_SERIAL_TRACKING" EntityType="Self.XXRF_ADS_SERIAL_TRACKING" Schema="ROCK" store:Type="Tables" />
+    <EntitySet Name="XXRF_ADS_UPGRADES" EntityType="Self.XXRF_ADS_UPGRADES" Schema="ROCK" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,54 @@
+@using System.Web.Http
+@using System.Web.Http.Controllers
+@using System.Web.Http.Description
+@using System.Collections.ObjectModel
+@using AdsApi.Areas.HelpPage.Models
+@model Collection<ApiDescription>
+
+@{
+    ViewBag.Title = "ASP.NET Web API Help Page";
+
+    // Group APIs by controller
+    ILookup<HttpControllerDescriptor, ApiDescription> apiGroups = Model.ToLookup(api => api.ActionDescriptor.ControllerDescriptor);
+}
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header navbar-fixed-top">
+            <a class="navbar-brand">Rockford Fosgate API Help Page</a>
+        </div>
+    </div>
+</nav>
+
+<br />
+<div class="container-fluid">
+    <section>
+        <br />
+        <br />
+        <h2>Introduction</h2>
+        <p>
+            Rockford Fosgate RESTful web API description and information page. This page was designed to help users to managage and maintaine API in a specific project.  
+        </p>
+    </section>
+    <section>
+        @foreach (var group in apiGroups)
+        {
+            @Html.DisplayFor(m => group, "ApiGroup")
+        }
+    </section>
+
+</div>
+
+
+<footer class="navbar navbar-default" >
+    <div class="container-fluid">
+        <div class="navbar-header" style="color:white;">
+            <p>
+                For Help: <a href="mailto:Help.Desk@Rockfordcorp.com">
+                 Help.Desk@Rockfordcorp.com
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+

@@ -1,0 +1,54 @@
+@using System.Net.Http.Headers
+@model Dictionary<MediaTypeHeaderValue, object>
+
+@{
+    // Group the samples into a single tab if they are the same.
+    Dictionary<string, object> samples = Model
+            .GroupBy(pair => pair.Value)
+            .ToDictionary(pair => String.Join(", ", pair
+            .Select(m => m.Key.ToString())
+            .ToArray()), pair => pair.Key);
+    var mediaTypes = samples.Keys;
+}
+<div>
+    <div>
+            @*<div class="col-xs-6">
+            <div class="panel panel-info">
+                <div class="panel-heading"><h4>@mediaType</h4></div>
+                <div class="panel-body">
+                    @{
+                        var sample = samples[mediaType];
+                        if (sample == null)
+                            {
+                                    <p>Sample not available.</p>
+                            }
+                            else
+                            {
+                                    @Html.DisplayFor(s => sample);
+                            }
+                    }
+                </div>
+            </div>
+        </div>*@
+    </div>
+
+    @foreach (var mediaType in mediaTypes)
+    {
+        <div class="col-xs-6 main-model">
+            <h4>@mediaType</h4>
+            @{
+                var sample = samples[mediaType];
+                if (sample == null)
+                {
+                    <p>Sample not available.</p>
+                }
+                else
+                {
+                    @Html.DisplayFor(s => sample);
+                }
+              }
+        </div>
+    }
+
+
+</div>

@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AdsModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="XXRF_ADS_ERROR_LOG">
+          <Key>
+            <PropertyRef Name="ERROR_ID" />
+          </Key>
+          <Property Name="ERROR_ID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="REQUEST" Type="varchar2" MaxLength="100" />
+          <Property Name="TYPE" Type="varchar2" MaxLength="100" />
+          <Property Name="MESSAGE" Type="varchar2" MaxLength="2000" />
+          <Property Name="TIME_DATE" Type="date" />
+          <Property Name="SERIAL" Type="varchar2" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="XXRF_ADS_FLASHED_UNITS">
+          <Key>
+            <PropertyRef Name="FLASH_ID" />
+          </Key>
+          <Property Name="FLASH_ID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SERIAL_NUMBER" Type="varchar2" MaxLength="20" />
+          <Property Name="SERIAL_NUMBER_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="CUSTOMER_NUMBER" Type="varchar2" MaxLength="500" />
+          <Property Name="FLASH_DATE" Type="date" />
+          <Property Name="VEHICLE_MAKE" Type="varchar2" MaxLength="500" />
+          <Property Name="VEHICLE_MODEL" Type="varchar2" MaxLength="500" />
+          <Property Name="VEHICLE_YEAR" Type="varchar2" MaxLength="20" />
+          <Property Name="USER_FLASH_UNIT" Type="varchar2" MaxLength="100" />
+          <Property Name="INVENTORY_ITEM_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="INV_FLAG" Type="varchar2" MaxLength="2" />
+          <Property Name="CREATION_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="XXRF_ADS_SERIAL_TRACKING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="SERIAL_NUMBER" Type="varchar2" MaxLength="20" />
+          <Property Name="SERIAL_NUMBER_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="SKU" Type="varchar2" MaxLength="250" />
+          <Property Name="CUSTOMER_NAME" Type="varchar2" MaxLength="250" />
+          <Property Name="CUSTOMER_NUMBER" Type="number" Precision="38" Scale="0" />
+          <Property Name="SHIP_TO_ADDRESS1" Type="varchar2" MaxLength="500" />
+          <Property Name="SHIP_TO_ADDRESS2" Type="varchar2" MaxLength="500" />
+          <Property Name="SHIP_TO_ADDRESS3" Type="varchar2" MaxLength="500" />
+          <Property Name="CITY" Type="varchar2" MaxLength="500" />
+          <Property Name="STATE_PROVINCE" Type="varchar2" MaxLength="500" />
+          <Property Name="POSTAL_CODE" Type="varchar2" MaxLength="500" />
+          <Property Name="COUNTRY" Type="varchar2" MaxLength="500" />
+          <Property Name="SHIP_DATE" Type="date" />
+          <Property Name="ORDER_NUMBER" Type="number" Precision="38" Scale="0" />
+          <Property Name="ADS_PICK_DATE" Type="date" />
+          <Property Name="ADS_FLASH_DATE" Type="date" />
+          <Property Name="FLASH_INVOICE_NUMBER" Type="number" Precision="38" Scale="0" />
+          <Property Name="ACK_MESSAGE" Type="varchar2" MaxLength="2000" />
+          <Property Name="ACK_DATE" Type="date" />
+          <Property Name="ACK_CODE" Type="varchar2" MaxLength="1" />
+          <Property Name="CONTACT_NAME" Type="varchar2" MaxLength="20" />
+          <Property Name="CONTACT_EMAIL" Type="varchar2" MaxLength="250" />
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="LOCATION_ID" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="XXRF_ADS_UPGRADES">
+          <Key>
+            <PropertyRef Name="UPGRADE_ID" />
+          </Key>
+          <Property Name="UPGRADE_ID" Type="number" Precision="38" Scale="0" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FLASH_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="UPGRADE" Type="varchar2" MaxLength="250" />
+        </EntityType>
+        <EntityContainer Name="AdsModelStoreContainer">
+          <EntitySet Name="XXRF_ADS_ERROR_LOG" EntityType="Self.XXRF_ADS_ERROR_LOG" Schema="ROCK" store:Type="Tables" />
+          <EntitySet Name="XXRF_ADS_FLASHED_UNITS" EntityType="Self.XXRF_ADS_FLASHED_UNITS" Schema="ROCK" store:Type="Tables" />
+          <EntitySet Name="XXRF_ADS_SERIAL_TRACKING" EntityType="Self.XXRF_ADS_SERIAL_TRACKING" Schema="ROCK" store:Type="Tables" />
+          <EntitySet Name="XXRF_ADS_UPGRADES" EntityType="Self.XXRF_ADS_UPGRADES" Schema="ROCK" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AdsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADS_UPGRADES" EntityType="AdsModel.ADS_UPGRADES" />
+          <FunctionImport Name="XXRF_ADS_GET_FLASH_ID" ReturnType="Collection(Single)">
+          <Parameter Name="P_FLASH_ID" Mode="Out" Type="Decimal" />
+          </FunctionImport>
+          <EntitySet Name="XXRF_ADS_FLASHED_UNITS" EntityType="AdsModel.ADS_FLASHED_UNITS" />
+          <EntitySet Name="XXRF_ADS_ERROR_LOG" EntityType="AdsModel.ADS_ERROR_LOG" />
+          <EntitySet Name="XXRF_ADS_SERIAL_TRACKING" EntityType="AdsModel.ADS_SERIAL_TRACKING" />
+        </EntityContainer>
+        <EntityType Name="ADS_UPGRADES">
+          <Key>
+            <PropertyRef Name="UPGRADE_ID" />
+          </Key>
+          <Property Name="UPGRADE_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FLASH_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="UPGRADE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ADS_FLASHED_UNITS">
+          <Key>
+            <PropertyRef Name="FLASH_ID" />
+          </Key>
+          <Property Name="FLASH_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SERIAL_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SERIAL_NUMBER_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CUSTOMER_NUMBER" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FLASH_DATE" Type="DateTime" />
+          <Property Name="VEHICLE_MAKE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="VEHICLE_MODEL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="VEHICLE_YEAR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="USER_FLASH_UNIT" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="INVENTORY_ITEM_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="INV_FLAG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CREATION_DATE" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="ADS_ERROR_LOG">
+          <Key>
+            <PropertyRef Name="ERROR_ID" />
+          </Key>
+          <Property Name="ERROR_ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="REQUEST" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MESSAGE" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="TIME_DATE" Type="DateTime" />
+          <Property Name="SERIAL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ADS_SERIAL_TRACKING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="SERIAL_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SERIAL_NUMBER_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="SKU" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CUSTOMER_NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CUSTOMER_NUMBER" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="SHIP_TO_ADDRESS1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SHIP_TO_ADDRESS2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SHIP_TO_ADDRESS3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="STATE_PROVINCE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="POSTAL_CODE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SHIP_DATE" Type="DateTime" />
+          <Property Name="ORDER_NUMBER" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ADS_PICK_DATE" Type="DateTime" />
+          <Property Name="ADS_FLASH_DATE" Type="DateTime" />
+          <Property Name="FLASH_INVOICE_NUMBER" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ACK_MESSAGE" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="ACK_DATE" Type="DateTime" />
+          <Property Name="ACK_CODE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CONTACT_EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="LOCATION_ID" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdsModelStoreContainer" CdmEntityContainer="AdsEntities">
+          <EntitySetMapping Name="ADS_UPGRADES">
+            <EntityTypeMapping TypeName="AdsModel.ADS_UPGRADES">
+              <MappingFragment StoreEntitySet="XXRF_ADS_UPGRADES">
+                <ScalarProperty Name="UPGRADE" ColumnName="UPGRADE" />
+                <ScalarProperty Name="FLASH_ID" ColumnName="FLASH_ID" />
+                <ScalarProperty Name="UPGRADE_ID" ColumnName="UPGRADE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="XXRF_ADS_FLASHED_UNITS">
+            <EntityTypeMapping TypeName="AdsModel.ADS_FLASHED_UNITS">
+              <MappingFragment StoreEntitySet="XXRF_ADS_FLASHED_UNITS">
+                <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+                <ScalarProperty Name="INV_FLAG" ColumnName="INV_FLAG" />
+                <ScalarProperty Name="INVENTORY_ITEM_ID" ColumnName="INVENTORY_ITEM_ID" />
+                <ScalarProperty Name="USER_FLASH_UNIT" ColumnName="USER_FLASH_UNIT" />
+                <ScalarProperty Name="VEHICLE_YEAR" ColumnName="VEHICLE_YEAR" />
+                <ScalarProperty Name="VEHICLE_MODEL" ColumnName="VEHICLE_MODEL" />
+                <ScalarProperty Name="VEHICLE_MAKE" ColumnName="VEHICLE_MAKE" />
+                <ScalarProperty Name="FLASH_DATE" ColumnName="FLASH_DATE" />
+                <ScalarProperty Name="CUSTOMER_NUMBER" ColumnName="CUSTOMER_NUMBER" />
+                <ScalarProperty Name="SERIAL_NUMBER_ID" ColumnName="SERIAL_NUMBER_ID" />
+                <ScalarProperty Name="SERIAL_NUMBER" ColumnName="SERIAL_NUMBER" />
+                <ScalarProperty Name="FLASH_ID" ColumnName="FLASH_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="XXRF_ADS_ERROR_LOG">
+            <EntityTypeMapping TypeName="AdsModel.ADS_ERROR_LOG">
+              <MappingFragment StoreEntitySet="XXRF_ADS_ERROR_LOG">
+                <ScalarProperty Name="SERIAL" ColumnName="SERIAL" />
+                <ScalarProperty Name="TIME_DATE" ColumnName="TIME_DATE" />
+                <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="REQUEST" ColumnName="REQUEST" />
+                <ScalarProperty Name="ERROR_ID" ColumnName="ERROR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="XXRF_ADS_SERIAL_TRACKING">
+            <EntityTypeMapping TypeName="AdsModel.ADS_SERIAL_TRACKING">
+              <MappingFragment StoreEntitySet="XXRF_ADS_SERIAL_TRACKING">
+                <ScalarProperty Name="LOCATION_ID" ColumnName="LOCATION_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CONTACT_EMAIL" ColumnName="CONTACT_EMAIL" />
+                <ScalarProperty Name="CONTACT_NAME" ColumnName="CONTACT_NAME" />
+                <ScalarProperty Name="ACK_CODE" ColumnName="ACK_CODE" />
+                <ScalarProperty Name="ACK_DATE" ColumnName="ACK_DATE" />
+                <ScalarProperty Name="ACK_MESSAGE" ColumnName="ACK_MESSAGE" />
+                <ScalarProperty Name="FLASH_INVOICE_NUMBER" ColumnName="FLASH_INVOICE_NUMBER" />
+                <ScalarProperty Name="ADS_FLASH_DATE" ColumnName="ADS_FLASH_DATE" />
+                <ScalarProperty Name="ADS_PICK_DATE" ColumnName="ADS_PICK_DATE" />
+                <ScalarProperty Name="ORDER_NUMBER" ColumnName="ORDER_NUMBER" />
+                <ScalarProperty Name="SHIP_DATE" ColumnName="SHIP_DATE" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="POSTAL_CODE" ColumnName="POSTAL_CODE" />
+                <ScalarProperty Name="STATE_PROVINCE" ColumnName="STATE_PROVINCE" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="SHIP_TO_ADDRESS3" ColumnName="SHIP_TO_ADDRESS3" />
+                <ScalarProperty Name="SHIP_TO_ADDRESS2" ColumnName="SHIP_TO_ADDRESS2" />
+                <ScalarProperty Name="SHIP_TO_ADDRESS1" ColumnName="SHIP_TO_ADDRESS1" />
+                <ScalarProperty Name="CUSTOMER_NUMBER" ColumnName="CUSTOMER_NUMBER" />
+                <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="SERIAL_NUMBER_ID" ColumnName="SERIAL_NUMBER_ID" />
+                <ScalarProperty Name="SERIAL_NUMBER" ColumnName="SERIAL_NUMBER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

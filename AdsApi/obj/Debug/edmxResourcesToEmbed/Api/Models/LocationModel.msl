@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LocationModelStoreContainer" CdmEntityContainer="LocationEntities">
+    <EntitySetMapping Name="ADS_DEALER_LOCATIONS">
+      <EntityTypeMapping TypeName="LocationModel.ADS_DEALER_LOCATIONS">
+        <MappingFragment StoreEntitySet="XXDD_ADS_DEALER_LOCATIONS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DEALER_NAME" ColumnName="DEALER_NAME" />
+          <ScalarProperty Name="ASSOCIATED_CUSTOMER_ID" ColumnName="ASSOCIATED_CUSTOMER_ID" />
+          <ScalarProperty Name="ADDRESS_1" ColumnName="ADDRESS_1" />
+          <ScalarProperty Name="ADDRESS_2" ColumnName="ADDRESS_2" />
+          <ScalarProperty Name="ADDRESS_3" ColumnName="ADDRESS_3" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="POSTAL_CODE" ColumnName="POSTAL_CODE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+          <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+          <ScalarProperty Name="COUNTRY_CODE" ColumnName="COUNTRY_CODE" />
+          <ScalarProperty Name="FACEBOOK_URL" ColumnName="FACEBOOK_URL" />
+          <ScalarProperty Name="PREMIUM_DEALER" ColumnName="PREMIUM_DEALER" />
+          <ScalarProperty Name="ADS" ColumnName="ADS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

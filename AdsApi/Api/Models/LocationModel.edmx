@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LocationModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'XXDD.XXDD_ADS_DEALER_LOCATIONS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="XXDD_ADS_DEALER_LOCATIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="DEALER_NAME" />
+            <PropertyRef Name="ASSOCIATED_CUSTOMER_ID" />
+            <PropertyRef Name="ADDRESS_1" />
+            <PropertyRef Name="CITY" />
+            <PropertyRef Name="POSTAL_CODE" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="DEALER_NAME" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="ASSOCIATED_CUSTOMER_ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="ADDRESS_1" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="ADDRESS_2" Type="varchar2" MaxLength="50" />
+          <Property Name="ADDRESS_3" Type="varchar2" MaxLength="50" />
+          <Property Name="CITY" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="STATE" Type="varchar2" MaxLength="2" />
+          <Property Name="POSTAL_CODE" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="50" />
+          <Property Name="URL" Type="varchar2" MaxLength="100" />
+          <Property Name="PHONE" Type="varchar2" MaxLength="20" />
+          <Property Name="FAX" Type="varchar2" MaxLength="20" />
+          <Property Name="CREATED_DATE" Type="date" />
+          <Property Name="MODIFIED_DATE" Type="date" />
+          <Property Name="COUNTRY_CODE" Type="varchar2" MaxLength="2" />
+          <Property Name="FACEBOOK_URL" Type="varchar2" MaxLength="200" />
+          <Property Name="PREMIUM_DEALER" Type="varchar2" MaxLength="1" />
+          <Property Name="ADS" Type="varchar2" MaxLength="1" />
+        </EntityType>
+        <EntityContainer Name="LocationModelStoreContainer">
+          <EntitySet Name="XXDD_ADS_DEALER_LOCATIONS" EntityType="Self.XXDD_ADS_DEALER_LOCATIONS" store:Type="Views" store:Schema="XXDD">
+            <DefiningQuery>SELECT 
+"XXDD_ADS_DEALER_LOCATIONS"."ID" AS "ID", 
+"XXDD_ADS_DEALER_LOCATIONS"."DEALER_NAME" AS "DEALER_NAME", 
+"XXDD_ADS_DEALER_LOCATIONS"."ASSOCIATED_CUSTOMER_ID" AS "ASSOCIATED_CUSTOMER_ID", 
+"XXDD_ADS_DEALER_LOCATIONS"."ADDRESS_1" AS "ADDRESS_1", 
+"XXDD_ADS_DEALER_LOCATIONS"."ADDRESS_2" AS "ADDRESS_2", 
+"XXDD_ADS_DEALER_LOCATIONS"."ADDRESS_3" AS "ADDRESS_3", 
+"XXDD_ADS_DEALER_LOCATIONS"."CITY" AS "CITY", 
+"XXDD_ADS_DEALER_LOCATIONS"."STATE" AS "STATE", 
+"XXDD_ADS_DEALER_LOCATIONS"."POSTAL_CODE" AS "POSTAL_CODE", 
+"XXDD_ADS_DEALER_LOCATIONS"."EMAIL" AS "EMAIL", 
+"XXDD_ADS_DEALER_LOCATIONS"."URL" AS "URL", 
+"XXDD_ADS_DEALER_LOCATIONS"."PHONE" AS "PHONE", 
+"XXDD_ADS_DEALER_LOCATIONS"."FAX" AS "FAX", 
+"XXDD_ADS_DEALER_LOCATIONS"."CREATED_DATE" AS "CREATED_DATE", 
+"XXDD_ADS_DEALER_LOCATIONS"."MODIFIED_DATE" AS "MODIFIED_DATE", 
+"XXDD_ADS_DEALER_LOCATIONS"."COUNTRY_CODE" AS "COUNTRY_CODE", 
+"XXDD_ADS_DEALER_LOCATIONS"."FACEBOOK_URL" AS "FACEBOOK_URL", 
+"XXDD_ADS_DEALER_LOCATIONS"."PREMIUM_DEALER" AS "PREMIUM_DEALER", 
+"XXDD_ADS_DEALER_LOCATIONS"."ADS" AS "ADS"
+FROM "XXDD"."XXDD_ADS_DEALER_LOCATIONS" "XXDD_ADS_DEALER_LOCATIONS"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LocationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADS_DEALER_LOCATIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="DEALER_NAME" />
+            <PropertyRef Name="ASSOCIATED_CUSTOMER_ID" />
+            <PropertyRef Name="ADDRESS_1" />
+            <PropertyRef Name="CITY" />
+            <PropertyRef Name="POSTAL_CODE" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="DEALER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ASSOCIATED_CUSTOMER_ID" Type="Int64" Nullable="false" />
+          <Property Name="ADDRESS_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADDRESS_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="POSTAL_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FAX" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" />
+          <Property Name="MODIFIED_DATE" Type="DateTime" />
+          <Property Name="COUNTRY_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="FACEBOOK_URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PREMIUM_DEALER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ADS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="LocationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADS_DEALER_LOCATIONS" EntityType="LocationModel.ADS_DEALER_LOCATIONS" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LocationModelStoreContainer" CdmEntityContainer="LocationEntities">
+          <EntitySetMapping Name="ADS_DEALER_LOCATIONS">
+            <EntityTypeMapping TypeName="LocationModel.ADS_DEALER_LOCATIONS">
+              <MappingFragment StoreEntitySet="XXDD_ADS_DEALER_LOCATIONS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DEALER_NAME" ColumnName="DEALER_NAME" />
+                <ScalarProperty Name="ASSOCIATED_CUSTOMER_ID" ColumnName="ASSOCIATED_CUSTOMER_ID" />
+                <ScalarProperty Name="ADDRESS_1" ColumnName="ADDRESS_1" />
+                <ScalarProperty Name="ADDRESS_2" ColumnName="ADDRESS_2" />
+                <ScalarProperty Name="ADDRESS_3" ColumnName="ADDRESS_3" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="POSTAL_CODE" ColumnName="POSTAL_CODE" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="MODIFIED_DATE" ColumnName="MODIFIED_DATE" />
+                <ScalarProperty Name="COUNTRY_CODE" ColumnName="COUNTRY_CODE" />
+                <ScalarProperty Name="FACEBOOK_URL" ColumnName="FACEBOOK_URL" />
+                <ScalarProperty Name="PREMIUM_DEALER" ColumnName="PREMIUM_DEALER" />
+                <ScalarProperty Name="ADS" ColumnName="ADS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

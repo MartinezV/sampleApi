@@ -1,0 +1,116 @@
+@using System.Web.Http
+@using System.Web.Http.Controllers
+@using System.Web.Http.Description
+@using AdsApi.Areas.HelpPage
+@using AdsApi.Areas.HelpPage.Models
+@model IGrouping<HttpControllerDescriptor, ApiDescription>
+
+
+@{
+    var controllerDocumentation = ViewBag.DocumentationProvider != null ? 
+        ViewBag.DocumentationProvider.GetDocumentation(Model.Key) : 
+        null;
+}
+
+<h2 id="@Model.Key.ControllerName">@Model.Key.ControllerName</h2>
+@if (!String.IsNullOrEmpty(controllerDocumentation))
+{
+    <p>@controllerDocumentation</p>
+}
+<div>
+    @*<table class="table table-condensed" style="border-collapse:collapse;">
+            <thead>
+                <tr>
+                    <th><h3></h3></th>
+                    <th><h3>API</h3></th>
+                    <th><h3>Description</h3></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int i = 0;}
+                @foreach (var api in Model)
+                {
+                    @*<tr data-toggle="collapse" data-target="#@Model.Key.ControllerName@i" class="accordion-toggle">
+                        <td>
+                            <a href="@Url.Action("Api", "Help", new { apiId = api.GetFriendlyId() })"
+                               class="btn btn-success">[@api.HttpMethod.Method]</a>
+                        </td>
+                        <td>
+                            <blockquote>@api.RelativePath</blockquote>
+                        </td>
+                        <td>
+                            @if (api.Documentation != null)
+                            {
+                                <blockquote>@api.Documentation</blockquote>
+                            }
+                            else
+                            {
+                                <blockquote>No documentation available.</blockquote>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="2">
+                            <div class="accordian-body collapse" id="@Model.Key.ControllerName@i">
+                                <div class="well well-lg">
+                                    <a>@Html.Action("Api", "Help", new { apiId = api.GetFriendlyId() })</a>
+                                    @*<div>@Html.Partial("Api","Help")</div>
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+
+                            i++;
+                }
+            </tbody>
+        </table>*@
+</div>
+
+<div id="tableHeader" class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-4"><h3>API</h3></div>
+    <div class="col-xs-6"><h3>Description</h3></div>
+</div>
+@{int i = 0;}
+@foreach (var api in Model)
+{
+    <div>
+        <div id="tableBody1" class="row">
+            <div class="col-xs-2">
+                <button type="button" 
+                        class="btn btn-success"
+                        onclick="$('#@Model.Key.ControllerName@i').toggleClass('hidden')">
+                                [@api.HttpMethod.Method]
+                </button>
+            </div>
+            <div class="col-xs-4">
+                <blockquote>@api.RelativePath</blockquote>
+            </div>
+            <div class="col-xs-6">
+                @if (api.Documentation != null)
+                {
+                    <blockquote>@api.Documentation</blockquote>
+                }
+                else
+                {
+                    <blockquote>No documentation available.</blockquote>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div id="@Model.Key.ControllerName@i" class="hidden">
+        <div id="tableBody2" class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-10">
+                <div class="well well-lg">
+                    <a>@Html.Action("Api", "Help", new { apiId = api.GetFriendlyId() })</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    i++;
+}

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LocationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ADS_DEALER_LOCATIONS">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="DEALER_NAME" />
+      <PropertyRef Name="ASSOCIATED_CUSTOMER_ID" />
+      <PropertyRef Name="ADDRESS_1" />
+      <PropertyRef Name="CITY" />
+      <PropertyRef Name="POSTAL_CODE" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="DEALER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASSOCIATED_CUSTOMER_ID" Type="Int64" Nullable="false" />
+    <Property Name="ADDRESS_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ADDRESS_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ADDRESS_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="STATE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="POSTAL_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PHONE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FAX" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CREATED_DATE" Type="DateTime" />
+    <Property Name="MODIFIED_DATE" Type="DateTime" />
+    <Property Name="COUNTRY_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="FACEBOOK_URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PREMIUM_DEALER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ADS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="LocationEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADS_DEALER_LOCATIONS" EntityType="LocationModel.ADS_DEALER_LOCATIONS" />
+  </EntityContainer>
+</Schema>
